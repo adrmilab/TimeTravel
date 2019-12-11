@@ -1,0 +1,365 @@
+package com.sample
+
+import com.sample.TTMain.Zapytanie;
+import com.sample.TTMain.Odpowiedz;
+
+rule "Init"
+	when
+	then
+		insert(new Zapytanie("Really?","Yes","No"));
+end
+
+
+rule "Really - Y"
+	when
+		z : Zapytanie(pytanie == "Really?", odpowiedz == z.getOdp1())
+	then
+		insert(new Zapytanie("Only information travels in time","Yes","No"));
+end
+
+rule "Really - N"
+	when
+		z : Zapytanie(pytanie == "Really?", odpowiedz == z.getOdp2())
+	then
+		insert(new Odpowiedz(
+		"Ivan Vasilievich Changes Profession\n" + 
+		"Time travel type: Private invention\n" + 
+		"Scale of events: Personal\n"));
+		insert(new Odpowiedz(
+		"Life on Mars\n" + 
+		"Time travel type: Personal misfortune\n" + 
+		"Scale of events: Personal\n"));
+		insert(new Odpowiedz(
+		"Source Code\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Massive\n"));
+end
+
+rule "Only information travels in time - Y"
+	when
+		z : Zapytanie(pytanie == "Only information travels in time", odpowiedz == z.getOdp1())
+	then
+		insert(new Zapytanie("Future sight","Yes","No"));
+end
+
+rule "Only information travels in time - N"
+	when
+		z : Zapytanie(pytanie == "Only information travels in time", odpowiedz == z.getOdp2())
+	then
+		insert(new Zapytanie("Single timeline","Yes","No"));
+		
+end
+
+rule "Future sight - Y"
+	when
+		z : Zapytanie(pytanie == "Future sight", odpowiedz == z.getOdp1())
+	then
+		insert(new Odpowiedz(
+		"Paycheck\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Global\n"));
+		insert(new Odpowiedz(
+		"Next\n" + 
+		"Time travel type: Superpower\n" + 
+		"Scale of events: Massive\n"));
+		insert(new Odpowiedz(
+		"FlashForward\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Global\n"));
+end
+
+rule "Future sight - N"
+	when
+		z : Zapytanie(pytanie == "Future sight", odpowiedz == z.getOdp2())
+	then
+		insert(new Zapytanie("Consciousness travels in time to the same body. Daily loop","Yes","No"));
+end
+
+rule "Consciousness travels in time to the same body. Daily loop - Y"
+	when
+		z : Zapytanie(pytanie == "Consciousness travels in time to the same body. Daily loop", odpowiedz == z.getOdp1())
+	then
+		insert(new Odpowiedz(
+		"Groundhog Day\n" + 
+		"Time travel type: Personal misfortune\n" + 
+		"Scale of events: Personal\n"));
+		insert(new Odpowiedz(
+		"Day Break\n" + 
+		"Time travel type: Personal misfortune\n" + 
+		"Scale of events: Personal\n"));
+end
+
+rule "Consciousness travels in time to the same body. Daily loop - N"
+	when
+		z : Zapytanie(pytanie == "Consciousness travels in time to the same body. Daily loop", odpowiedz == z.getOdp2())
+	then
+		insert(new Zapytanie("Skip to the present","Yes","No"));
+		
+end
+
+rule "Skip to the present - Y"
+	when
+		z : Zapytanie(pytanie == "Skip to the present", odpowiedz == z.getOdp1())
+	then
+		insert(new Odpowiedz(
+		"The Butterfly Effect\n" + 
+		"Time travel type: Superpower\n" + 
+		"Scale of events: Personal\n"));
+end
+
+rule "Skip to the present - N"
+	when
+		z : Zapytanie(pytanie == "Skip to the present", odpowiedz == z.getOdp2())
+	then
+		insert(new Odpowiedz(
+		"Retroactive\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Personal\n"));
+		
+end
+
+rule "Single timeline - Y"
+	when
+		z : Zapytanie(pytanie == "Single timeline", odpowiedz == z.getOdp1())
+	then
+		insert(new Zapytanie("Travel to the past","Yes","No"));
+end
+
+rule "Single timeline - N"
+	when
+		z : Zapytanie(pytanie == "Single timeline", odpowiedz == z.getOdp2())
+	then
+		insert(new Zapytanie("Multiverse","Yes","No"));
+		
+end
+
+rule "Travel to the past - Y"
+	when
+		z : Zapytanie(pytanie == "Travel to the past", odpowiedz == z.getOdp1())
+	then
+		insert(new Zapytanie("Single timeline causality loops","Yes","No"));
+end
+
+rule "Travel to the past - N"
+	when
+		z : Zapytanie(pytanie == "Travel to the past", odpowiedz == z.getOdp2())
+	then
+		insert(new Odpowiedz(
+		"Planet of the Apes(1968)\n" + 
+		"Time travel type: Relativistic effects\n" + 
+		"Scale of events: Personal\n"));
+		
+end
+
+
+rule "Single timeline causality loops - Y"
+	when
+		z : Zapytanie(pytanie == "Single timeline causality loops", odpowiedz == z.getOdp1())
+	then
+		insert(new Zapytanie("Novikov self-consistency principle","Yes","No"));
+end
+
+rule "Single timeline causality loops - N"
+	when
+		z : Zapytanie(pytanie == "Single timeline causality loops", odpowiedz == z.getOdp2())
+	then
+		insert(new Odpowiedz(
+		"Army of Darkness\n" + 
+		"Time travel type: Mysterious anomaly\n" + 
+		"Scale of events: Personal\n"));
+		insert(new Odpowiedz(
+		"Midnight in Paris\n" + 
+		"Time travel type: Mysterious anomaly\n" + 
+		"Scale of events: Personal\n"));	
+end
+
+
+rule "Novikov self-consistency principle - Y"
+	when
+		z : Zapytanie(pytanie == "Novikov self-consistency principle", odpowiedz == z.getOdp1())
+	then
+		insert(new Zapytanie("Interaction with self","Yes","No"));
+end
+
+rule "Novikov self-consistency principle - N"
+	when
+		z : Zapytanie(pytanie == "Novikov self-consistency principle", odpowiedz == z.getOdp2())
+	then
+		insert(new Zapytanie("1.21 jigowatts at 88 miles per hour","Yes","No"));	
+end
+
+rule "1.21 jigowatts at 88 miles per hour - Y"
+	when
+		z : Zapytanie(pytanie == "1.21 jigowatts at 88 miles per hour", odpowiedz == z.getOdp1())
+	then
+		insert(new Odpowiedz(
+		"Back to the Future\n" + 
+		"Time travel type: Private invention\n" + 
+		"Scale of events: Personal\n"));	
+		insert(new Odpowiedz(
+		"Back to the Future Part II\n" + 
+		"Time travel type: Private invention\n" + 
+		"Scale of events: Personal\n"));
+		insert(new Odpowiedz(
+		"Back to the Future Part III\n" + 
+		"Time travel type: Private invention\n" + 
+		"Scale of events: Personal\n"));
+end
+
+rule "1.21 jigowatts at 88 miles per hour - N"
+	when
+		z : Zapytanie(pytanie == "1.21 jigowatts at 88 miles per hour", odpowiedz == z.getOdp2())
+	then
+		insert(new Odpowiedz(
+		"A Sound of Thunder\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Global\n"));	
+		insert(new Odpowiedz(
+		"Looper\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Massive\n"));	
+end
+
+rule "Interaction with self - Y"
+	when
+		z : Zapytanie(pytanie == "Interaction with self", odpowiedz == z.getOdp1())
+	then
+		insert(new Odpowiedz(
+		"Twelve Monkeys\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Global\n"));
+		insert(new Odpowiedz(
+		"Harry Potter and the Prisoner of Azkaban\n" + 
+		"Time travel type: Magical Device\n" + 
+		"Scale of events: Personal\n"));
+end
+
+rule "Interaction with self - N"
+	when
+		z : Zapytanie(pytanie == "Interaction with self", odpowiedz == z.getOdp2())
+	then
+		insert(new Odpowiedz(
+		"The Terminator\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Global\n"));
+		insert(new Odpowiedz(
+		"Premonition\n" + 
+		"Time travel type: Personal misfortune\n" + 
+		"Scale of events: Personal\n"));
+		insert(new Odpowiedz(
+		"The Time Traveler's Wife\n" + 
+		"Time travel type: Personal misfortune\n" + 
+		"Scale of events: Personal\n"));	
+end
+
+rule "Multiverse - Y"
+	when
+		z : Zapytanie(pytanie == "Multiverse", odpowiedz == z.getOdp1())
+	then
+		insert(new Zapytanie("History is hard to change","Yes","No"));
+end
+
+rule "Multiverse - N"
+	when
+		z : Zapytanie(pytanie == "Multiverse", odpowiedz == z.getOdp2())
+	then
+		insert(new Odpowiedz(
+		"Donnie Darko\n" + 
+		"Time travel type: Mysterious anomaly\n" + 
+		"Scale of events: Personal\n"));
+		
+end
+
+rule "History is hard to change - Y"
+	when
+		z : Zapytanie(pytanie == "History is hard to change", odpowiedz == z.getOdp1())
+	then
+		insert(new Odpowiedz(
+		"Happy Accidents\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Personal\n"));
+		insert(new Odpowiedz(
+		"The Time Machine (2002)\n" + 
+		"Time travel type: Private invention\n" + 
+		"Scale of events: Personal\n"));
+		insert(new Odpowiedz(
+		"Terminator 3: Rise of the Machines\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Global\n"));
+end
+
+rule "History is hard to change - N"
+	when
+		z : Zapytanie(pytanie == "History is hard to change", odpowiedz == z.getOdp2())
+	then
+		insert(new Zapytanie("Backward world lines","Yes","No"));	
+end
+
+rule "Backward world lines - Y"
+	when
+		z : Zapytanie(pytanie == "Backward world lines", odpowiedz == z.getOdp1())
+	then
+		insert(new Odpowiedz(
+		"Primer\n" + 
+		"Time travel type: Private invention\n" + 
+		"Scale of events: Personal\n"));
+end
+
+rule "Backward world lines - N"
+	when
+		z : Zapytanie(pytanie == "Backward world lines", odpowiedz == z.getOdp2())
+	then
+		insert(new Zapytanie("Non-travellers remember other timelines","Yes","No"));
+		
+end
+
+rule "Non-travellers remember other timelines - Y"
+	when
+		z : Zapytanie(pytanie == "Non-travellers remember other timelines", odpowiedz == z.getOdp1())
+	then
+		insert(new Odpowiedz(
+		"Men in Black 3\n" + 
+		"Time travel type: Private invention\n" + 
+		"Scale of events: Global\n"));
+		insert(new Odpowiedz(
+		"The Jacket\n" + 
+		"Time travel type: Superpower\n" + 
+		"Scale of events: Personal\n"));
+end
+
+rule "Non-travellers remember other timelines - N"
+	when
+		z : Zapytanie(pytanie == "Non-travellers remember other timelines", odpowiedz == z.getOdp2())
+	then
+		insert(new Zapytanie("Causality loops","Yes","No"));
+		
+end
+
+rule "Causality loops - Y"
+	when
+		z : Zapytanie(pytanie == "Causality loops", odpowiedz == z.getOdp1())
+	then
+		insert(new Odpowiedz(
+		"Terminator 2: Judgement Day\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Global\n"));
+
+end
+
+rule "Causality loops - N"
+	when
+		z : Zapytanie(pytanie == "Causality loops", odpowiedz == z.getOdp2())
+	then
+		insert(new Odpowiedz(
+		"Blackadder Back & Forth\n" + 
+		"Time travel type: Private invention\n" + 
+		"Scale of events: Personal\n"));
+		insert(new Odpowiedz(
+		"Planet of the Apes (2001)\n" + 
+		"Time travel type: Mysterious anomaly\n" + 
+		"Scale of events: Global\n"));
+		insert(new Odpowiedz(
+		"Deja Vu\n" + 
+		"Time travel type: Governmental or corporate machine\n" + 
+		"Scale of events: Massive\n"));		
+end
